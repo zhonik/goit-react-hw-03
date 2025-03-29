@@ -3,6 +3,7 @@ import css from './ContactForm.module.css';
 import { useId } from 'react';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
+import { FaUserPlus } from 'react-icons/fa';
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -28,7 +29,9 @@ const ContactForm = ({ onAdd }) => {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={ContactSchema}>
       <Form className={css.form}>
-        <label className={css.label} htmlFor={nameFieldId}>Name</label>
+        <label className={css.label} htmlFor={nameFieldId}>
+          Name
+        </label>
         <Field
           className={css.field}
           type='text'
@@ -38,7 +41,9 @@ const ContactForm = ({ onAdd }) => {
         />
         <ErrorMessage className={css.error} name='name' component='span' />
 
-        <label className={css.label} htmlFor={numberFieldId}>Number</label>
+        <label className={css.label} htmlFor={numberFieldId}>
+          Number
+        </label>
         <Field
           className={css.field}
           type='text'
@@ -49,6 +54,7 @@ const ContactForm = ({ onAdd }) => {
         <ErrorMessage className={css.error} name='number' component='span' />
         <button className={css.btn} type='submit'>
           Add
+          <FaUserPlus size={20} />
         </button>
       </Form>
     </Formik>

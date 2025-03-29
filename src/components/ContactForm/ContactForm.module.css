@@ -33,6 +33,10 @@
   border-radius: 5px;
   padding: 4px;
   width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
   font-size: 20px;
 
   &:hover {
